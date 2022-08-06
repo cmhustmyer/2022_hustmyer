@@ -1,0 +1,1066 @@
+---
+# Configuration file for running ChIP-seq workflow
+
+# Here is where the reference genomes are specified
+reference:
+    # Align to UPEC CFT073 WT genome
+    NC_004431.1:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        
+    # Align to genbank file with rfaH cds deleted for delta rfaH (dr) strains
+    NC_004431.1_dr:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_rfaH.bed    
+    # Align to genbank file with hns and stpA cds deleted for delta hns stpA (2X) strains
+    NC_004431.1_2x:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_hns_stpA.bed  
+    # Align to genbank file with hns, stpA, and rfaH cds deleted for delta hns rfaH stpA (3X) strains
+    NC_004431.1_3x:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_hns_stpA_rfaH.bed 
+    # Align to genbank file with stpA cds deleted for delta stpA (ds) strains
+    NC_004431.1_ds:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_stpA.bed 
+    # Align to genbank file with rfaH and stpA cds deleted for delta stpA rfaH (dsdr) strains
+    NC_004431.1_dsdr:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_stpA_rfaH.bed 
+    # Align to genbank file with hns cds deleted for delta hns (dh) strains
+    NC_004431.1_dh:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            NC_004431.1: resources/genbanks/NC_004431.1.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/NC_004431.1/NC_004431.1.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+            
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+        masked_regions: bed_files/cft_hns.bed
+    # Align to RL3000 (E. coli K12) genbank file
+    U00096.3:
+        # location of the genbanks. If put in the location and format shown
+        # below the pipeline will attempt to pull this file from NCBI by
+        # accession number. Each genbank MUST have a associated name which
+        # is used to name the contig pulled from it.
+        genbanks: 
+            U00096.3: resources/genbanks/U00096.3.gbk
+        # This is the fasta file for each chromosome in the genome
+        # If specified location then it is automatically parsed
+        # from the genbank.
+        fastas:
+            - results/alignment/process_genbank/U00096.3/U00096.3.fna
+            # but you can also add additional contigs that you may want in
+            # the final alignment genome by listing them here
+
+        # This allows you to mask regions by replacing them with Ns. Masked
+        # regions need to be specified by a bed file
+      
+
+# Options to control preprocessing rules
+preprocessing:
+    # control the parameter string passed to cutadapt. Here you could change
+    # the adaptor sequences for every sample by using 
+    # cut_param_string:
+    #   value: "my string here"
+    # or by sample by using :
+    # cut_param_string: 
+    #   column: cutadapt_params
+    # and specifying the name of the column in the
+    # sample sheet that holds the strings you want to for each sample. In this
+    # example it would be the column cutadapt_params that holds a string for
+    # each sample
+    cutadapt_pe:
+        cut_param_string:
+            value: "-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+    # Control the parameter string from trimmomatic
+    trimmomatic_pe:
+        trim_param_string:
+            value: "LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15"
+
+# Options to control alignment rules
+alignment:
+    process_genbank:
+        # Control what features are parsed from the genbank when pulling out
+        # bed files
+        features:
+            value: "CDS tRNA rRNA sRNA ncRNA"
+        qual_name: 
+            value: "gene old_locus_tag locus_tag"
+    bowtie2_map:
+        # controls how bowtie2 does its alignments
+        bowtie2_param_string:
+            value: "--end-to-end --very-sensitive --phred33"
+        # controls samtools filtering as reads come out of bowtie2. Default
+        # is to just convert the sam records into a bam with -b
+        samtools_view_param_string:
+            value: "-b"
+
+
+# Options to control genome coverage calculations
+coverage_and_norm:
+
+    # what resolution in bp do you want the coverage to be calculated?
+    resolution: 5
+    # general controls - these only control what is automatically run
+    # when running the whole pipeline or module.
+    # how to normalize within a sample. Options include:
+    # RPKM, CPM, BPM, RPGC, median, and SES. See deeptools manual for
+    # details on these normalization methods.
+    within: median
+    # drop NaNs and Infs from zero coverage in input or extracted
+    # Note
+    # that bigwigs will not display properly in IGV if they have nans or infs
+    dropNaNsandInfs: true
+    # Robust Z scale the log2ratio of extracted to input
+    RobustZ: false
+    # rule specific controls
+    # Each of these can be specified either as a single value for every sample
+    # or as a column in the sample_sheet using column: column_name
+    deeptools_coverage:
+    # Rather than set this for all samples
+            #value: "--samFlagInclude 66 --extendReads"
+            # We will instead set it for each sample by specifying a column
+        bamCoverage_param_string:
+            column: "bamCoverage_params"
+    bwtools_median:
+        # pseudocount is added before normalizing by the median
+        pseudocount:
+            value: 0
+    bwtools_fixed_scale:
+        # what regions to use as the background when doing a scaling by a
+        # fixed set of regions. This directs the pipeline to use the 20 tRNA
+        # genes that were maximally occupied and had read coverage in all strains
+        fixed_regions: 
+            value: "bed_files/top20fix.bed"
+    bwtools_query_subtract:
+        # What regions to consider for a dynamically chosen background subtraction
+        # Choose the 20 genes with the lowest coverage.
+        query_regions:
+            value: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+        # how many regions to look at?
+        number_of_regions:
+            value: 20
+    bwtools_query_scale:
+        # What regions to consider for a max scaling
+        # Choose the 20 genes with the highest coverage
+        query_regions:
+            value: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+        # How many regions to look at for max scaling
+        number_of_regions:
+            value: 20
+
+
+    bwtools_multicompare:
+        # Run these models by doing `snakemake --use-conda --cores
+        # N run_bwtools_multicompare`.
+        #
+        # Allows you to perform operations on multiple bigwigs. This can be one
+        # of
+        # 1. collapsing multiple bw files into one using a summary statistic
+        # 2. comparing two groups of bw files by calculating a summary file for
+        #    each group and then a comparison between the summary of groupA and
+        #    groupB files.
+        # Output File name will be
+        # results/coverage_and_norm/bwtools_multicompare/modelname.bw
+        # Below is an example of each type
+        #
+        # Model 1: Take the average of all genotypeA tracks ignoring the input
+        # samples
+        mean_hns_wt:
+            # Filter for genotype A files but exclude the input samples
+            filter_groupA: 'compare_mod1 == "1" and not input_sample.isnull()'
+            # Choose the raw bigwigs as the inputs for each of these samples
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # Choose an average calculation as the summary statistic. Other 
+            # operations include max, min, and median. NaNs and Infs are ignored
+            # for the summary calc
+            operation_within: "mean"
+        mean_rnap_wt:
+            # Filter for genotype A files but exclude the input samples
+            filter_groupA: 'compare_mod2 == "1" and not input_sample.isnull()'
+            # Choose the raw bigwigs as the inputs for each of these samples
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # Choose an average calculation as the summary statistic. Other 
+            # operations include max, min, and median. NaNs and Infs are ignored
+            # for the summary calc
+            operation_within: "mean"            
+
+
+# Options to control quality control
+quality_control:
+    # what column to group samples by for ChIP-QC output plots?
+    group_by: genome
+
+# Options to control peak calling
+peak_calling:
+    # Can make different models to try out different peak callers or parameters.
+    # Macs2 peak calling was used for RfaH region determination, see extended methods
+    macs2_all:
+        peak_caller: "macs2"
+        # filter out the samples you want to run based on metadata
+        filter: 'not input_sample.isnull()'
+        # Macs2 runs directly on the bam files for each sample so
+        # a filesignature does not need to specified.
+
+        # specify a parameter string used to control macs2
+        # -f BAMPE is automatically specified and -g EFFECTIVE_GENOME_SIZE is
+        # automatically determined.
+        macs2_param_string: 
+            value: "--broad"
+
+# Options to control variant calling. I.e. running breseq on the input samples
+variant_calling:
+    # Which samples do you want to run variant calling on. Typically
+    # only the input samples as specified by having no sample name in
+    # the "input_sample" column
+    filter: "input_sample.isnull()"
+    # Which reference to compare against. Reference must be defined above
+    # in the reference section. Can specify a single value for all samples
+    # or a column in the metadata sheet to define a reference for each
+    # sample
+    reference:
+        value: "NC_004431.1"
+
+
+# Control for the postprocessing submodule
+postprocessing:
+    # summarizes values by region
+    bwtools_query:
+        # Can specify different "models" to run by naming them here
+        # Model 1 - look at the full coverage for all genes in a log2 ratio, scale reads to median, but do not occupancy normalize data.  
+        log2ratio_med_all_genes_cov_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_log2ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 2 - look at the coverage for all genes as a mean summary in a log2 ratio, median normalize, no occupancy scale
+        log2ratio_med_all_genes_mean_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use?
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use?
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_log2ratio.bw"
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format, single allows for a single number summary)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 3 - look at the full coverage for all genes in a ratio without log transformation, median normalize data, no occupancy scale 
+        ratio_med_all_genes_cov_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5 
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"           
+        # Model 4 - look at the mean coverage for all genes in a ratio without log transformation, median normalize data, no occupancy scale 
+        ratio_med_all_genes_mean_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 5 - look at the full coverage for all genes in a ratio, median normalize, then arbitrary, not fixed, occupancy scale (20 highest and 20 lowest genes in each dataset) 
+        ratio_med_all_genes_cov_scale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_queryscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"           
+        # Model 6 - look at the mean coverage for all genes in a ratio, median normalize, then arbitrary, not fixed, occupancy scale (20 highest and 20 lowest genes in each dataset) 
+        ratio_med_all_genes_mean_scale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_queryscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 7 - look at the full coverage for all parsed transcription units in a log2 ratio, median normalize reads, no occupancy scale  
+        log2ratio_med_all_parsedTUs_cov_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "bed_files/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_log2ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 50
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 8 - look at the coverage for all TUs as a mean summary in a log2 ratio, median normalize reads, no occupancy scale
+        log2ratio_med_all_parsedTUs_mean_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use?
+            regions: "test/parse_TU.bed"
+            # which files to use?
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_log2ratio.bw"
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format, single allows for a single number summary)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 9 - look at the full coverage for all TUs in a ratio without log transformation, median normalize reads, no occupancy scale
+        ratio_med_all_parsedTUs_cov_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 50
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"           
+        # Model 10 - look at the mean coverage for all TUs in a ratio, without log transformation, median normalize reads, no occupancy scale
+        ratio_med_all_parsedTUs_mean_noscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 50
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 15 - look at the mean coverage for all genes in a ratio, median normalize, then occupancy scale data based on top 20 fixed tRNA genes (for RNAP),20 lowest genes as minima
+        ratio_med_all_genes_mean_FIXEDUPscale:
+            # only consider the samples that have a genotype A
+            filter: '"A" in genotype and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20            
+        # Model 18 - look at the full coverage for all TUs in a ratio, median normalize, then occupancy scale data based on top 20 fixed tRNA genes (for RNAP),20 lowest genes as minima, but with 600 bp upstream coverage 
+        ratio_med_all_parsedTUsfig1_wtRNAP_cov_fixedTOPscale_600US:
+            #This is a redo of a model I already ran, but looks at occupancy at WT and -rfaH per TU with -600 TSS
+            # which regions to use? Specifying a file like this has the pipeline
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod17_18 == "1" and not input_sample.isnull()'
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 600
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity" 
+        # Model 19 - look at the mean coverage for all TUs in a ratio, fixed top occupancy scale 
+        ratio_med_all_parsedTUsfig2_mean_fixedTOPscale_noUS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod19_20 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 20 - look at the full coverage for all TUs in a ratio, FIXED UPPER occupancy scale 
+        ratio_med_all_parsedTUsfig2_cov_fixedTOPscale_300US:
+            # which regions to use? Specifying a file like this has the pipeline
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod19_20 == "1" and not input_sample.isnull()'
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 300
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 21 - look at the mean coverage for all TUs in a ratio, fixed top occupancy scale 
+        ratio_med_all_parsedTUsfig3_mean_fixedTOPscale_noUS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod21_22 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 22 - look at the full coverage for all TUs in a ratio, FIXED UPPER occupancy scale 
+        ratio_med_all_parsedTUsfig3_rnap_occ_cov_fixedTOPscale_600US:
+            # which regions to use? Specifying a file like this has the pipeline
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod21_22 == "1" and not input_sample.isnull()'
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/parse_TU.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 600
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 23 - look at the mean coverage for all TUs in a ratio, fixed top occupancy scale 
+        ratio_med_all_RfaHwindows_mean_fixedTOPscale_noUS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod23 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/50bpRfaHTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 24 - look at the mean coverage for all genes with  median/input samples from the hns chip data set k12 from the sessayahe data 
+        ratio_med_all_genes_mean_noscale_k12:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod24_1 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/U00096.3/U00096.3.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20              
+        # Model 24_2 - look at the mean coverage for all genes with  median/input samples from the hns chip data set cft 
+        ratio_med_all_genes_mean_noscale_hns_fork12_data:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod24_2 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/NC_004431.1/NC_004431.1.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 25_1 - look at the raw coverage ratio for RfaH regulated TUs in WT, +/- 1000 nt
+        use_ratio_med_cov_RfaHregTUs:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod25 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 1000
+            # how many bp downstream (3') of a feature to include
+            downstream: 1000
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 25_2 - look at the raw coverage log2ratio for RfaH regulated TUs in WT, +/- 1000 nt
+        use_log2ratio_med_cov_RfaHregTUs:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod25 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_log2ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 1000
+            # how many bp downstream (3') of a feature to include
+            downstream: 1000
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 26 - look at the raw coverage occupancy for RfaH regulated TUs in WT, +/- 1000 nt
+        use_OCC_med_cov_RfaHregTUs:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod26 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 1000
+            # how many bp downstream (3') of a feature to include
+            downstream: 1000
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 27 - look at the raw coverage IP for RfaH regulated TUs in WT, +/- 1800 nt
+        use_rawCHIP_med_cov_RfaHregTUs_1800:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod25 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/deeptools_coverage/%s_median.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 1800
+            # how many bp downstream (3') of a feature to include
+            downstream: 1800
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 28 - look at the IP/INput for RNAP at CDS
+        ratio_med_mean_rnap_hns_CDS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod28== "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/NC_004431.1_CDS.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 29 - look at the raw coverage ratio for RfaH regulated TUs in WT, +/- 1000 nt
+        use_ratio_med_cov_RfaHregTUs_2500US:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod25 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 2500
+            # how many bp downstream (3') of a feature to include
+            downstream: 2500
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 30 - look at the raw coverage ratio for rNAP occupancy RfaH regulated TUs in all conditions, -300 nt
+        fig3_5_ratio_med_occupancy_cov_RfaHregTUs:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod30 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_fixedscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 300
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 31 - look at the raw coverage ratio for sigma at RfaH regulated TUs in all conditions, -300 nt
+        suppfig_ratio_med_sigma_cov_RfaHregTUs:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod31 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/rfaH_regCtrlTUs.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 300
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 34 - look at ChIP-exo coverage of StpA and H-NS per gene
+        raw_med_ChIPexo_genes_mean_noscale_k12:
+            #filter only certain samples from sample sheet
+            #when there is no input delete the not input_sample is null
+            filter: 'postprocess_mod33 == "1"'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "results/alignment/process_genbank/U00096.3/U00096.3.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/deeptools_coverage/%s_median.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 35 - look at wt stpA, hns, 2X, wt rfaH, and rnap coverage in 1.4 kb windows
+        wt_ratio_1.4kbwin_genes_mean_noscale_rpt:
+            #filter only certain samples from sample sheet
+            #when there is no input delete the not input_sample is null
+            filter: 'postprocess_mod35 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/1400bp_windows.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 36 - look at wt stpA, hns, and rnap coverage in 1.4 kb windows
+        hns_occupancy_1.4kbwin_genes_mean_noscale_rpt:
+            #filter only certain samples from sample sheet
+            #when there is no input delete the not input_sample is null
+            filter: 'postprocess_mod32 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/1400bp_windows.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio_querysub_queryscale.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 0
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "single"
+            # What single number summary do you want (mean, median, max, min)
+            # only defined when summarize is "single"
+            summarize_func: "mean"
+            # what fraction of NaNs can be in a region and still report a value?
+            frac_na: 0.20
+        # Model 37 - look at the raw coverage ratio for RfaH regulated TUs in 2X, +/- 1000 nt
+        2X_ratio_med_cov_RfaHregTUs_1000US_DS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod37 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/RfaH_2Xreg.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 1000
+            # how many bp downstream (3') of a feature to include
+            downstream: 1000
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
+        # Model 38 - look at the raw coverage ratio for RfaH regulated TUs in 2X, +/- 1000 nt
+        2X_ratio_med_cov_RfaHregTUs_8000US_DS:
+            #filter only certain samples from sample sheet
+            filter: 'postprocess_mod37 == "1" and not input_sample.isnull()'
+            # which regions to use? Specifying a file like this has the pipeline
+            # parse it from your genbank file given the process genbank
+            # parameters above in the alignment section
+            regions: "test/RfaH_2Xreg.bed"
+            # which files to use? This file signature will substitute in
+            # a sample name for the %s
+            filesignature: "results/coverage_and_norm/bwtools_compare/%s_median_ratio.bw"
+            # how many bp upstream (5') of a feature to include
+            upstream: 8000
+            # how many bp downstream (3') of a feature to include
+            downstream: 0
+            # what resolution to query data (shouldn't be lower than the
+            # resolution of your file
+            res : 5
+            # How do you want to summarize your data? (identity gives every data
+            # point in tidy format)
+            summarize: "identity"
